@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .box{
+            position: relative;
+            border: 1px solid black;
+            width: 560px;
+            height: 560px;
+            margin: 10px auto;
+            padding: 20px;
+        }
+        table{
+            width: 560px;
+            height: 560px;
+            cursor: pointer;
+            border-collapse:collapse;
+        }
+        table td{
+            position: relative;
+            width: 70px;
+            height: 70px;
+        }
+        table td span{
+            position: absolute;
+            display: block;
+            width: 50px;
+            height: 50px;
+            background-color: #000;
+            border-radius: 50%;
+            top:50%;
+            left: 50%;
+            margin: -25px 0 0 -25px;
+        }
+        .box_back{
+            position: absolute;
+            width: 100vw;
+            height: 100vh;
+            background:rgba(255,255,255,0.7);
+            top:0;
+            left: 0;
+            z-index: 666;
+            display: none;
+        }
+        .box_back  h1{
+            text-align: center;
+            margin-top: 300px;
+        }
+        .box_back  h1 span{
+            font-size: 30px;
+            color: red;
+        }
+        #btn{
+            z-index: 888;
+            position: absolute;
+            left: 50%;
+            top: 55%;
+            margin-left: -50px;
+            width: 100px;
+            height: 50px;
+            outline: none;
+            font-size: 16px;
+            font-weight: bolder;
+            animation:move 2s infinite ;
+            animation-fill-mode:forwards;
+            -moz-animation:move 2s infinite; /* Firefox */
+            -webkit-animation:move 2s infinite; /* Safari and Chrome */
+            -o-animation:move 2s infinite; /* Opera */
+            animation-iteration-count:1;
+            -webkit-animation-iteration-count:1;
+            display: none;
+        }
+        @keyframes move
+        {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+
+        @-moz-keyframes move /* Firefox */
+        {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+
+        @-webkit-keyframes move /* Safari 和 Chrome */
+        {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+
+        @-o-keyframes move /* Opera */
+        {
+            from {opacity: 0}
+            to {opacity: 1}
+        }
+       .content{
+           position: absolute;
+           top: 50%;
+           left: 50%;
+           margin-left: -69px;
+           font-size: 30px;
+           font-weight: bolder;
+           color: red;
+           z-index: 888;
+           -webkit-animation: bounce 1800ms ease-out;
+           -moz-animation: bounce 1800ms ease-out;
+           -o-animation: bounce 1800ms ease-out;
+           animation: bounce 1800ms ease-out;
+           display: none;
+       }
+        @-webkit-keyframes bounce {
+            0% {
+                -webkit-transform:translateY(-100%);
+                opacity: 0;
+            }
+            5% {
+                -webkit-transform:translateY(-100%);
+                opacity: 0;
+            }
+            15% {
+                -webkit-transform:translateY(0);
+                padding-bottom: 5px;
+            }
+            30% {
+                -webkit-transform:translateY(-50%);
+            }
+            40% {
+                -webkit-transform:translateY(0%);
+                padding-bottom: 6px;
+            }
+            50% {
+                -webkit-transform:translateY(-30%);
+            }
+            70% {
+                -webkit-transform:translateY(0%);
+                padding-bottom: 7px;
+            }
+            80% {
+                -webkit-transform:translateY(-15%);
+            }
+            90% {
+                -webkit-transform:translateY(0%);
+                padding-bottom: 8px;
+            }
+            95% {
+                -webkit-transform:translateY(-10%);
+            }
+            97% {
+                -webkit-transform:translateY(0%);
+                padding-bottom: 9px;
+            }
+            99% {
+                -webkit-transform:translateY(-5%);
+            }
+            100% {
+                -webkit-transform:translateY(0);
+                padding-bottom: 9px;
+                opacity: 1;
+            }
+        }
+
+        /* Mozilla Firefox 15 below */
+        @-moz-keyframes bounce {
+            0% {
+                -moz-transform:translateY(-100%);
+                opacity: 0;
+            }
+            5% {
+                -moz-transform:translateY(-100%);
+                opacity: 0;
+            }
+            15% {
+                -moz-transform:translateY(0);
+                padding-bottom: 5px;
+            }
+            30% {
+                -moz-transform:translateY(-50%);
+            }
+            40% {
+                -moz-transform:translateY(0%);
+                padding-bottom: 6px;
+            }
+            50% {
+                -moz-transform:translateY(-30%);
+            }
+            70% {
+                -moz-transform:translateY(0%);
+                padding-bottom: 7px;
+            }
+            80% {
+                -moz-transform:translateY(-15%);
+            }
+            90% {
+                -moz-transform:translateY(0%);
+                padding-bottom: 8px;
+            }
+            95% {
+                -moz-transform:translateY(-10%);
+            }
+            97% {
+                -moz-transform:translateY(0%);
+                padding-bottom: 9px;
+            }
+            99% {
+                -moz-transform:translateY(-5%);
+            }
+            100% {
+                -moz-transform:translateY(0);
+                padding-bottom: 9px;
+                opacity: 1;
+            }
+        }
+
+        /* Opera 12.0 */
+        @-o-keyframes bounce {
+            0% {
+                -o-transform:translateY(-100%);
+                opacity: 0;
+            }
+            5% {
+                -o-transform:translateY(-100%);
+                opacity: 0;
+            }
+            15% {
+                -o-transform:translateY(0);
+                padding-bottom: 5px;
+            }
+            30% {
+                -o-transform:translateY(-50%);
+            }
+            40% {
+                -o-transform:translateY(0%);
+                padding-bottom: 6px;
+            }
+            50% {
+                -o-transform:translateY(-30%);
+            }
+            70% {
+                -o-transform:translateY(0%);
+                padding-bottom: 7px;
+            }
+            80% {
+                -o-transform:translateY(-15%);
+            }
+            90% {
+                -o-transform:translateY(0%);
+                padding-bottom: 8px;
+            }
+            95% {
+                -o-transform:translateY(-10%);
+            }
+            97% {
+                -o-transform:translateY(0%);
+                padding-bottom: 9px;
+            }
+            99% {
+                -o-transform:translateY(-5%);
+            }
+            100% {
+                -o-transform:translateY(0);
+                padding-bottom: 9px;
+                opacity: 1;
+            }
+        }
+
+        /* W3, Opera 12+, Firefox 16+ */
+        @keyframes bounce {
+            0% {
+                transform:translateY(-100%);
+                opacity: 0;
+            }
+            5% {
+                transform:translateY(-100%);
+                opacity: 0;
+            }
+            15% {
+                transform:translateY(0);
+                padding-bottom: 5px;
+            }
+            30% {
+                transform:translateY(-50%);
+            }
+            40% {
+                transform:translateY(0%);
+                padding-bottom: 6px;
+            }
+            50% {
+                transform:translateY(-30%);
+            }
+            70% {
+                transform:translateY(0%);
+                padding-bottom: 7px;
+            }
+            80% {
+                transform:translateY(-15%);
+            }
+            90% {
+                transform:translateY(0%);
+                padding-bottom: 8px;
+            }
+            95% {
+                transform:translateY(-7%);
+            }
+            97% {
+                transform:translateY(0%);
+                padding-bottom: 9px;
+            }
+            99% {
+                transform:translateY(-3%);
+            }
+            100% {
+                transform:translateY(0);
+                padding-bottom: 9px;
+                opacity: 1;
+            }
+        }
+        section{
+            width: 560px;
+            height: 20px;
+            margin: 100px auto 0;
+            font-size: 20px;
+            font-weight: bolder;
+            color: red;
+        }
+        section span{
+            color: black;
+        }
+        section div{
+            display: inline;
+        }
+        section div:first-child{
+            float: left;
+        }
+        section div:last-child{
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div>最高分：<span id="top">0</span></div>
+    <div>当前分数：<span id="current">0</span></div>
+</section>
+<div class="box"></div>
+<p class="content">Game over</p>
+<button id="btn">重新开始</button>
+<p id="score"></p>
+<div class="box_back">
+    <h1>游戏分数:<span></span></h1>
+</div>
+<script src="game.js"></script>
+<script>
+    var box=document.getElementsByClassName('box')[0];
+    var table = game.createTable();
+    if(!game.status){
+        game.reset(box, table);
+    }
+    game.status = true;
+    table.addEventListener('click',function (e) {
+        if(e.target.nodeName === 'TD'){
+            var xy = e.target.getAttribute('data-xy');
+            e.target.innerHTML='<span></span>';
+//               console.log(xy[0]+""+xy[1] )
+            if(game.dataArr.length === 0){
+                game.dataArr.push(xy);
+                document.getElementById('current').innerText = game.dataArr.length;
+            }else {
+                var target = game.analysisXY(xy);
+                var isgameover = false;
+                for(var i in game.dataArr){
+                    var dataXY = game.analysisXY(game.dataArr[i]);
+                    if(target.x === dataXY.x || target.y === dataXY.y || (Math.abs(target.x - dataXY.x) === Math.abs(target.y-dataXY.y))){
+                        game.status = false;
+                        game.gameover();
+                        isgameover = true;
+                    }
+                }
+                if(!isgameover){
+                    game.dataArr.push(xy);
+                    document.getElementById('current').innerText = game.dataArr.length;
+                }
+            }
+        }
+    },false);
+
+
+    var shadow=document.querySelector('.box_back');
+    var btn=document.getElementById("btn");
+    var content=document.querySelector('.content');
+    function show() {
+        btn.style.display="block";
+        shadow.style.display="block";
+        content.style.display='block';
+    }
+    btn.onclick=function () {
+        btn.style.display="none";
+        shadow.style.display="none";
+        content.style.display='none';
+        game.reset(box, table);
+    }
+</script>
+</body>
+</html>
